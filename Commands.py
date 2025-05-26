@@ -1,24 +1,8 @@
-import logging
 import os
-import lasio
-import pandas as pd
-from telebot import TeleBot
-
-logging.basicConfig(level=logging.INFO)
+from LAS_block import LasToAsciiConverter
 
 
-class TelegramBot:
-    def __init__(self, token):
-        self.token = token
-        self.bot = TeleBot(token)
-        self.commands = Commands(self.bot)
-
-    def run(self):
-        self.commands.register_commands()
-        self.bot.polling()
-
-
-class Commands:
+class Commands_:
     def __init__(self, bot):
         self.bot = bot
 
@@ -71,22 +55,3 @@ class Commands:
     def register_commands(self):
         self.start()
         self.handle_file()
-
-
-class LasToAsciiConverter:
-    def convert(self, file_name):
-        las = lasio.read(file_name)
-        data = las.data
-        df = pd.DataFrame(data)
-        ascii_file_name = file_name.replace('.las', '.ascii')
-        df.to_csv(ascii_file_name, sep='\t', index=False)
-
-
-def main():
-    token = '5806816635:AAEPihEhHMh9iXohdI9qsUjwQqUxBQlOGrU'
-    bot = TelegramBot(token)
-    bot.run()
-
-
-if __name__ == '__main__':
-    main()
