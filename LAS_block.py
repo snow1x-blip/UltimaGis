@@ -1,5 +1,4 @@
 import lasio
-import pandas as pd
 
 
 class LasToExcelConverter:
