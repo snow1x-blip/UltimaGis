@@ -14,7 +14,9 @@ class LasToExcelConverter:
 
     def save_to_excel(self, excel_file):
         if self.dataframe is None:
-            raise ValueError("Data not loaded. Call load_data() before saving.")
+            raise ValueError(
+                "Data not loaded. Call load_data() before saving."
+                )
         # Сохраняем DataFrame в Excel файл без индексов
         self.dataframe.to_excel(excel_file, index=False)
 
