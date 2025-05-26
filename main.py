@@ -1,5 +1,8 @@
+import logging
 from telebot import TeleBot
 from Commands import Commands_
+
+logging.basicConfig(level=logging.INFO)
 
 
 class TelegramBot:
