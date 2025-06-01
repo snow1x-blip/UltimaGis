@@ -43,7 +43,7 @@ class Commands_:
                 os.remove(ascii_file_name)
                 self.bot.send_message(
                     message.chat.id,
-                    'Конвертированный файл отправлен.'
+                    'Конвертированный файл отправлен!'
                 )
 
             else:

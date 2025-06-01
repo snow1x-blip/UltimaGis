@@ -1,8 +1,12 @@
 import logging
+import os
+
+from dotenv import load_dotenv
 from telebot import TeleBot
 from Commands import Commands_
 
 logging.basicConfig(level=logging.INFO)
+load_dotenv()
 
 
 class TelegramBot:
@@ -17,7 +21,7 @@ class TelegramBot:
 
 
 def main():
-    token = '5806816635:AAEPihEhHMh9iXohdI9qsUjwQqUxBQlOGrU'
+    token = os.getenv('TOKEN')
     bot = TelegramBot(token)
     bot.run()
 
